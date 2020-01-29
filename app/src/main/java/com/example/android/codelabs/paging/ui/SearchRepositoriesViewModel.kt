@@ -36,7 +36,8 @@ class SearchRepositoriesViewModel(private val repository: GithubRepository) : Vi
         repository.search(it)
     }
 
-    val repos: LiveData<PagedList<Repo>> = Transformations.switchMap(repoResult) { it -> it.data }
+    val repos: LiveData<PagedList<Repo>> = Transformations.switchMap(repoResult) { it ->
+        it.data }
     val networkErrors: LiveData<String> = Transformations.switchMap(repoResult) { it ->
         it.networkErrors
     }
